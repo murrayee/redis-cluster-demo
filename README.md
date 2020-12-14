@@ -40,7 +40,7 @@ for N in `seq 10 15` ; do
  redis-cli -h 172.21.0.11 -p 7001 -a 123456  CLUSTER ADDSLOTS {5462,10922}
  redis-cli -h 172.21.0.12 -p 7002 -a 123456  CLUSTER ADDSLOTS {10923,16383}
 ```
-- 4、拿到节点标识设置主从关系
+- 4、拿到节点标识设置主从关系
 ```
 redis-cli -h 172.21.0.13 -p 7003 -a 123456 CLUSTER REPLICATE 8ded936820cdb95f537ec5980808436c3c385cd1
 redis-cli -h 172.21.0.14 -p 7004 -a 123456 CLUSTER REPLICATE 34e5ce612d4e9fd4b04df84966c8565a690fc0ec
