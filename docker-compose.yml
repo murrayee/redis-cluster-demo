@@ -1,0 +1,119 @@
+version: '3'
+services:
+   redis-7000: 
+     image: redis:latest
+     container_name: redis-7000
+     volumes: 
+       - ./data/7000/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7000/data:/data
+       - ./data/7000/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7000:7000"
+       - "17000:17000"
+     restart: always
+     networks: 
+       redis-net:
+         ipv4_address: 172.21.0.10
+     logging:  
+       driver: "json-file"
+       options: 
+         max-size: "1m"
+   redis-7001: 
+     image: redis:latest
+     container_name: redis-7001
+     volumes: 
+       - ./data/7001/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7001/data:/data
+       - ./data/7001/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7001:7001"
+       - "17001:17001"
+     restart: always
+     networks:  
+       redis-net:
+         ipv4_address: 172.21.0.11
+     logging: 
+       driver: "json-file"
+       options: 
+         max-size: "1m" 
+   redis-7002: 
+     image: redis:latest
+     container_name: redis-7002
+     volumes: 
+       - ./data/7002/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7002/data:/data
+       - ./data/7002/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7002:7002"
+       - "17002:17002"
+     restart: always
+     networks: 
+       redis-net:
+         ipv4_address: 172.21.0.12
+     logging: 
+       driver: "json-file"
+       options: 
+         max-size: "1m" 
+   redis-7003: 
+     image: redis:latest
+     container_name: redis-7003
+     volumes: 
+       - ./data/7003/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7003/data:/data
+       - ./data/7003/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7003:7003"
+       - "17003:17003"
+     restart: always
+     networks: 
+       redis-net:
+         ipv4_address: 172.21.0.13
+     logging: 
+       driver: "json-file"
+       options: 
+         max-size: "1m" 
+   redis-7004: 
+     image: redis:latest
+     container_name: redis-7004
+     volumes: 
+       - ./data/7004/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7004/data:/data
+       - ./data/7004/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7004:7004"
+       - "17004:17004"
+     restart: always
+     networks: 
+       redis-net:
+         ipv4_address: 172.21.0.14
+     logging: 
+       driver: "json-file"
+       options: 
+         max-size: "1m" 
+   redis-7005: 
+     image: redis:latest
+     container_name: redis-7005
+     volumes: 
+       - ./data/7005/conf/redis.conf:/usr/local/etc/redis/redis.conf
+       - ./data/7005/data:/data
+       - ./data/7005/logs:/usr/local/redis/logs
+     command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+     ports: 
+       - "7005:7005"
+       - "17005:17005"
+     restart: always
+     networks: 
+       redis-net:
+         ipv4_address: 172.21.0.15
+     logging: 
+       driver: "json-file"
+       options: 
+         max-size: "1m" 
+networks:
+  redis-net:
+    external: true
